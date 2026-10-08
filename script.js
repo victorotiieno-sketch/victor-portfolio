@@ -50,6 +50,11 @@ const setActiveLink = currentId => {
     navLinks.forEach(link => {
         const isActive = link.getAttribute("href") === `#${currentId}`;
         link.classList.toggle("active", isActive);
+        if (isActive) {
+            link.setAttribute("aria-current", "page");
+        } else {
+            link.removeAttribute("aria-current");
+        }
     });
 };
 
@@ -170,6 +175,7 @@ const applyProjectFilter = filter => {
     filterButtons.forEach(button => {
         const isActive = button.dataset.filter === filter;
         button.classList.toggle("active", isActive);
+        button.setAttribute("aria-pressed", String(isActive));
     });
 
     projectCards.forEach(card => {
@@ -201,7 +207,7 @@ const handleContactSubmit = event => {
     );
 
     window.location.href = `mailto:victorotiieno@gmail.com?subject=${subject}&body=${body}`;
-    formStatus.textContent = "Your email draft is ready—send it from your mail app to continue.";
+    formStatus.textContent = "Your email app should open with a draft ready. Review it and choose Send; nothing is sent automatically.";
     contactForm.reset();
 };
 

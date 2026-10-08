@@ -31,14 +31,14 @@
                 <span class="theme-toggle__icon">☀️</span>
             </button>
 
-            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">
+            <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle navigation" aria-controls="nav" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
 
             <nav class="nav" id="nav">
-                <a href="#home" class="nav-link active">Home</a>
+                <a href="#home" class="nav-link active" aria-current="page">Home</a>
                 <a href="#about" class="nav-link">About</a>
                 <a href="#services" class="nav-link">What I Do</a>
                 <a href="#skills" class="nav-link">Skills</a>
@@ -55,27 +55,25 @@
             <div class="container hero-grid">
 
                 <div class="hero-content reveal">
-                    <p class="eyebrow">ICT PROFESSIONAL</p>
+                    <p class="eyebrow">ICT SUPPORT • NETWORKING • SYSTEMS</p>
 
                     <h1>
-                        Technology.
-                        <span>Support.</span>
-                        Solutions.
+                        ICT Support.
+                        <span>Reliable Systems.</span>
                     </h1>
 
                     <p class="hero-description">
-                        I build, support and improve digital systems through
-                        reliable technical support, networking, development
-                        and practical technology solutions.
+                        I help people and teams solve technical problems through
+                        hands-on ICT support, networking and practical systems work.
                     </p>
 
                     <div class="hero-buttons">
                         <a href="#projects" class="btn btn-primary">
-                            Explore My Work
+                            View Projects
                         </a>
 
                         <a href="#contact" class="btn btn-outline">
-                            Let's Connect
+                            Contact Me
                         </a>
 
                         <a href="assets/victor_otieno_cv.pdf" class="btn btn-text" download>
@@ -397,8 +395,8 @@
                             <div>
                                 <h4>ICT Support</h4>
                                 <p>
-                                    Supporting users with technical issues,
-                                    systems and ICT-related requests.
+                                    Troubleshooting day-to-day user issues and
+                                    responding to ICT service requests.
                                 </p>
                             </div>
                         </div>
@@ -408,8 +406,8 @@
                             <div>
                                 <h4>Network & Infrastructure</h4>
                                 <p>
-                                    Assisting with networking, connectivity
-                                    and ICT infrastructure.
+                                    Assisting with network connectivity and
+                                    infrastructure troubleshooting.
                                 </p>
                             </div>
                         </div>
@@ -419,8 +417,8 @@
                             <div>
                                 <h4>Servers & Systems</h4>
                                 <p>
-                                    Working around server environments,
-                                    systems and technical infrastructure.
+                                    Working with server environments and
+                                    supporting day-to-day systems.
                                 </p>
                             </div>
                         </div>
@@ -430,7 +428,7 @@
                             <div>
                                 <h4>Technical Troubleshooting</h4>
                                 <p>
-                                    Investigating technical issues and helping
+                                    Investigating reported issues and helping
                                     restore reliable ICT services.
                                 </p>
                             </div>
@@ -563,17 +561,18 @@
                 </div>
 
                 <div class="projects-filters reveal" aria-label="Project categories">
-                    <button class="filter-btn active" data-filter="all" type="button">All</button>
-                    <button class="filter-btn" data-filter="web" type="button">Web</button>
-                    <button class="filter-btn" data-filter="systems" type="button">Systems</button>
-                    <button class="filter-btn" data-filter="cybersecurity" type="button">Cybersecurity</button>
-                    <button class="filter-btn" data-filter="networking" type="button">Networking</button>
+                    <button class="filter-btn active" data-filter="all" type="button" aria-pressed="true">All</button>
+                    <button class="filter-btn" data-filter="web" type="button" aria-pressed="false">Web</button>
+                    <button class="filter-btn" data-filter="systems" type="button" aria-pressed="false">Systems</button>
+                    <button class="filter-btn" data-filter="cybersecurity" type="button" aria-pressed="false">Cybersecurity</button>
+                    <button class="filter-btn" data-filter="networking" type="button" aria-pressed="false">Networking</button>
                 </div>
 
                 <div class="projects-grid">
 
                     <article class="project-card reveal" data-category="web">
-                        <div class="project-visual browser-visual">
+                        <div class="project-visual browser-visual" aria-hidden="true">
+                            <span class="visual-label">Layout illustration</span>
                             <div class="browser-top">
                                 <span></span>
                                 <span></span>
@@ -606,23 +605,27 @@
                             </div>
 
                             <div class="project-impact">
-                                <span>Outcome</span>
-                                <strong>Clear digital identity</strong>
+                                <span>Project goal</span>
+                                <strong>Present skills and experience clearly</strong>
                             </div>
 
                             <ul class="project-results">
-                                <li>Showcases skills, experience and technical direction</li>
-                                <li>Creates a stronger first impression for recruiters</li>
+                                <li>Brings projects, skills and experience into one place</li>
+                                <li>Gives recruiters a clear overview of my ICT focus</li>
                             </ul>
 
-                            <a href="https://github.com/victorotiieno-sketch" target="_blank" rel="noopener noreferrer">
+                            <a href="https://victorotiieno-sketch.github.io/victor-portfolio/" target="_blank" rel="noopener noreferrer">
+                                View live site ↗
+                            </a>
+                            <a href="https://github.com/victorotiieno-sketch/victor-portfolio" target="_blank" rel="noopener noreferrer">
                                 View on GitHub ↗
                             </a>
                         </div>
                     </article>
 
                     <article class="project-card reveal" data-category="systems">
-                        <div class="project-visual system-visual">
+                        <div class="project-visual system-visual" aria-hidden="true">
+                            <span class="visual-label">Workflow concept</span>
                             <div class="system-window">
                                 <div class="system-sidebar"></div>
 
@@ -654,33 +657,29 @@
                             </div>
 
                             <div class="project-impact">
-                                <span>Outcome</span>
-                                <strong>Faster triage and support visibility</strong>
+                                <span>Project goal</span>
+                                <strong>Make request handling easier to follow</strong>
                             </div>
 
                             <ul class="project-results">
-                                <li>Maps issues faster for better support coordination</li>
-                                <li>Improves status tracking for IT teams and users</li>
+                                <li>Organises service requests by status and priority</li>
+                                <li>Supports clearer handoffs between support teams</li>
                             </ul>
 
                             <span class="private-project">
-                                Private Project • In Development
+                                Concept • In Development
                             </span>
                         </div>
                     </article>
 
                     <article class="project-card reveal" data-category="cybersecurity">
-                        <div class="project-visual code-visual">
-                            <div class="code-lines">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
+                        <div class="project-visual security-visual">
+                            <figure class="security-evidence">
+                                <a href="images/secure-review-injection-after.png" target="_blank" rel="noopener noreferrer" aria-label="Open the full-size SQL injection retest screenshot">
+                                    <img src="images/secure-review-injection-after-crop.png" alt="Terminal output showing the SQL injection login test rejected with invalid credentials." width="780" height="280" loading="lazy">
+                                </a>
+                                <figcaption>SQL injection retest · Invalid credentials</figcaption>
+                            </figure>
                         </div>
 
                         <div class="project-content">
@@ -697,13 +696,13 @@
                             </div>
 
                             <div class="project-impact">
-                                <span>Outcome</span>
-                                <strong>Safer application patterns</strong>
+                                <span>Project goal</span>
+                                <strong>Recognise and reduce common code risks</strong>
                             </div>
 
                             <ul class="project-results">
-                                <li>Highlights weaknesses in unsafe input handling</li>
-                                <li>Supports stronger secure coding habits and checks</li>
+                                <li>Reviews input handling and authentication patterns</li>
+                                <li>Encourages safer implementation and review habits</li>
                             </ul>
 
                             <a href="https://github.com/victorotiieno-sketch/CodeAlpha_SecureCodingReview" target="_blank" rel="noopener noreferrer">
@@ -713,7 +712,8 @@
                     </article>
 
                     <article class="project-card reveal" data-category="networking">
-                        <div class="project-visual network-visual">
+                        <div class="project-visual network-visual" aria-hidden="true">
+                            <span class="visual-label">Network map illustration</span>
                             <div class="network-node node-one"></div>
                             <div class="network-node node-two"></div>
                             <div class="network-node node-three"></div>
@@ -738,13 +738,13 @@
                             </div>
 
                             <div class="project-impact">
-                                <span>Outcome</span>
-                                <strong>Better network visibility</strong>
+                                <span>Project goal</span>
+                                <strong>Observe traffic for learning and analysis</strong>
                             </div>
 
                             <ul class="project-results">
-                                <li>Helps uncover packet patterns and network behavior</li>
-                                <li>Builds practical troubleshooting confidence</li>
+                                <li>Observes packet data with Python and Scapy</li>
+                                <li>Explores traffic patterns during troubleshooting</li>
                             </ul>
 
                             <a href="https://github.com/victorotiieno-sketch/CodeAlpha_BasicNetworkSniffer" target="_blank" rel="noopener noreferrer">
@@ -790,20 +790,21 @@
                         <form class="contact-form" id="contact-form">
                             <div class="field-group">
                                 <label for="name">Your name</label>
-                                <input id="name" name="name" type="text" placeholder="e.g. Jane Doe" required>
+                                <input id="name" name="name" type="text" autocomplete="name" maxlength="100" placeholder="e.g. Jane Doe" required>
                             </div>
 
                             <div class="field-group">
                                 <label for="email">Email address</label>
-                                <input id="email" name="email" type="email" placeholder="you@example.com" required>
+                                <input id="email" name="email" type="email" autocomplete="email" maxlength="254" placeholder="you@example.com" required>
                             </div>
 
                             <div class="field-group">
                                 <label for="message">Project details</label>
-                                <textarea id="message" name="message" rows="5" placeholder="Tell me about your idea, challenge, or opportunity..." required></textarea>
+                                <textarea id="message" name="message" rows="5" maxlength="5000" placeholder="Tell me about your idea, challenge, or opportunity..." required></textarea>
                             </div>
 
-                            <button type="submit" class="btn btn-primary">Send Message</button>
+                            <p class="form-note">This form opens your email app with a draft. It does not send or store your message.</p>
+                            <button type="submit" class="btn btn-primary">Prepare Email Draft</button>
                             <p class="form-status" aria-live="polite"></p>
                         </form>
 
