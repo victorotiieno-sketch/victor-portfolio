@@ -712,16 +712,21 @@
                     </article>
 
                     <article class="project-card reveal" data-category="networking">
-                        <div class="project-visual network-visual" aria-hidden="true">
-                            <span class="visual-label">Network map illustration</span>
-                            <div class="network-node node-one"></div>
-                            <div class="network-node node-two"></div>
-                            <div class="network-node node-three"></div>
-                            <div class="network-node node-four"></div>
-
-                            <div class="network-line line-one"></div>
-                            <div class="network-line line-two"></div>
-                            <div class="network-line line-three"></div>
+                        <div class="project-visual sniffer-visual">
+                            <div class="sniffer-terminal" aria-label="Example packet output documented in the network sniffer README">
+                                <div class="sniffer-terminal__header">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span>README example output</span>
+                                </div>
+                                <pre><code><span>Packet #1</span>
+Time        : 2026-09-16 04:17:33
+Source      : 10.0.2.15
+Destination : 8.8.8.8
+Protocol    : ICMP
+Ports       : Echo/Control Message</code></pre>
+                            </div>
                         </div>
 
                         <div class="project-content">
