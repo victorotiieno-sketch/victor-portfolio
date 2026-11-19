@@ -11,6 +11,36 @@ const counters = [...document.querySelectorAll(".counter")];
 const contactForm = document.getElementById("contact-form");
 const formStatus = document.querySelector(".form-status");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const pageLoader = document.getElementById("page-loader");
+const heroVisual = document.querySelector(".hero-visual");
+
+if (pageLoader && !prefersReducedMotion) {
+    let loaderFinished = false;
+    const finishPageLoader = () => {
+        if (loaderFinished) {
+            return;
+        }
+
+        loaderFinished = true;
+        document.body.classList.remove("is-loading");
+    };
+
+    document.body.classList.add("is-loading");
+
+    const loaderTimeout = window.setTimeout(finishPageLoader, 1800);
+    if (document.readyState === "complete") {
+        window.setTimeout(finishPageLoader, 320);
+    } else {
+        window.addEventListener(
+            "load",
+            () => {
+                window.clearTimeout(loaderTimeout);
+                window.setTimeout(finishPageLoader, 180);
+            },
+            { once: true }
+        );
+    }
+}
 
 const setCurrentYear = () => {
     if (year) {
@@ -264,9 +294,24 @@ document.addEventListener("keydown", event => {
     }
 });
 
+let scrollFrame = 0;
+
 window.addEventListener("scroll", () => {
-    updateHeaderState();
-    syncActiveSection();
+    if (scrollFrame) {
+        return;
+    }
+
+    scrollFrame = window.requestAnimationFrame(() => {
+        updateHeaderState();
+        syncActiveSection();
+
+        if (heroVisual && !prefersReducedMotion) {
+            const offset = Math.min(window.scrollY * 0.12, 72);
+            heroVisual.style.setProperty("--parallax-y", `${offset}px`);
+        }
+
+        scrollFrame = 0;
+    });
 });
 
 window.addEventListener("resize", () => {
@@ -278,6 +323,24 @@ window.addEventListener("resize", () => {
 const revealElements = document.querySelectorAll(".reveal");
 
 if ("IntersectionObserver" in window) {
+    const revealGroups = new Map();
+    revealElements.forEach(element => {
+        const parent = element.parentElement;
+        if (!parent) {
+            return;
+        }
+
+        const siblings = revealGroups.get(parent) || [];
+        siblings.push(element);
+        revealGroups.set(parent, siblings);
+    });
+
+    revealGroups.forEach(elements => {
+        elements.forEach((element, index) => {
+            element.style.setProperty("--reveal-delay", `${Math.min(index, 4) * 90}ms`);
+        });
+    });
+
     const revealObserver = new IntersectionObserver(
         entries => {
             entries.forEach(entry => {
@@ -298,6 +361,26 @@ if ("IntersectionObserver" in window) {
 } else {
     revealElements.forEach(element => {
         element.classList.add("visible");
+    });
+}
+
+if (!prefersReducedMotion && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    document.querySelectorAll(".project-card, .profile-card").forEach(card => {
+        card.addEventListener("pointermove", event => {
+            const bounds = card.getBoundingClientRect();
+            const x = (event.clientX - bounds.left) / bounds.width;
+            const y = (event.clientY - bounds.top) / bounds.height;
+            const tiltX = (0.5 - y) * 6;
+            const tiltY = (x - 0.5) * 8;
+
+            card.style.setProperty("--tilt-x", `${tiltX.toFixed(2)}deg`);
+            card.style.setProperty("--tilt-y", `${tiltY.toFixed(2)}deg`);
+        });
+
+        card.addEventListener("pointerleave", () => {
+            card.style.removeProperty("--tilt-x");
+            card.style.removeProperty("--tilt-y");
+        });
     });
 }
 
