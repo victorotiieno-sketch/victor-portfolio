@@ -147,11 +147,8 @@ const applyTheme = theme => {
     }
 
     if (themeToggle) {
-        const icon = themeToggle.querySelector(".theme-toggle__icon");
         themeToggle.setAttribute("aria-pressed", String(isLight));
-        if (icon) {
-            icon.textContent = isLight ? "🌙" : "☀️";
-        }
+        themeToggle.setAttribute("title", isLight ? "Switch to dark theme" : "Switch to light theme");
     }
 
     safeStorage.setItem("victor-portfolio-theme-v2", theme);
