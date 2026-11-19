@@ -407,6 +407,57 @@ textarea {
     margin-top: 35px;
 }
 
+.opportunity-callout {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 12px;
+    width: fit-content;
+    max-width: 100%;
+    margin-top: 24px;
+    padding: 12px 15px;
+    border: 1px solid var(--border-accent);
+    border-radius: 10px;
+    background: var(--glass-surface);
+    box-shadow: 0 12px 28px var(--shadow);
+    text-decoration: none;
+    transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.opportunity-callout:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.opportunity-callout__dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--success);
+    box-shadow: 0 0 0 4px rgba(111, 189, 139, 0.12);
+}
+
+.opportunity-callout strong,
+.opportunity-callout small {
+    display: block;
+}
+
+.opportunity-callout strong {
+    font-size: 0.78rem;
+}
+
+.opportunity-callout small {
+    margin-top: 2px;
+    color: var(--cream-muted);
+    font-size: 0.68rem;
+}
+
+.opportunity-callout__link {
+    color: var(--accent);
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
 .btn {
     position: relative;
     isolation: isolate;
@@ -913,25 +964,25 @@ textarea {
     max-width: 560px;
 }
 
-.case-metrics {
+.case-focus {
     display: flex;
     flex-wrap: wrap;
     gap: 24px;
     margin-top: 28px;
 }
 
-.case-metrics div {
+.case-focus div {
     min-width: 140px;
 }
 
-.case-metrics strong {
+.case-focus strong {
     display: block;
     font-size: clamp(1.7rem, 2vw, 2.3rem);
     color: var(--accent);
     line-height: 1;
 }
 
-.case-metrics span {
+.case-focus span {
     display: block;
     margin-top: 8px;
     color: var(--cream-muted);
@@ -981,6 +1032,46 @@ textarea {
     color: var(--cream-muted);
     font-size: 0.8rem;
     line-height: 1.7;
+}
+
+.case-details {
+    display: grid;
+    gap: 10px;
+    margin: 15px 0 0;
+}
+
+.case-details div {
+    display: grid;
+    grid-template-columns: 62px minmax(0, 1fr);
+    gap: 10px;
+}
+
+.case-details dt {
+    color: var(--accent);
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.case-details dd {
+    margin: 0;
+    color: var(--cream-muted);
+    font-size: 0.74rem;
+    line-height: 1.6;
+}
+
+.case-link {
+    display: inline-block;
+    margin-top: 14px;
+    color: var(--accent);
+    font-size: 0.76rem;
+    font-weight: 650;
+    text-decoration: none;
+}
+
+.case-link:hover {
+    color: var(--accent-light);
 }
 
 .process {
@@ -1790,6 +1881,15 @@ textarea {
 
     .hero-socials {
         flex-wrap: wrap;
+    }
+
+    .opportunity-callout {
+        grid-template-columns: auto 1fr;
+        width: 100%;
+    }
+
+    .opportunity-callout__link {
+        grid-column: 2;
     }
 
     .floating-card {

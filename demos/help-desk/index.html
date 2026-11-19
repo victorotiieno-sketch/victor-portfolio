@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f5f8f9">
+    <meta name="description" content="Try a browser-only ICT help desk workflow prototype by Victor Otieno.">
+    <title>ICT Help Desk Demo | Victor Otieno</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="../../index.html" aria-label="Victor Otieno portfolio home">
+            <span class="brand-mark" aria-hidden="true">VO</span>
+            <span>Victor Otieno<small>ICT Support</small></span>
+        </a>
+        <a class="back-link" href="../../index.html#projects">← Back to portfolio</a>
+    </header>
+
+    <main class="workspace">
+        <section class="intro" aria-labelledby="page-title">
+            <p class="eyebrow">INTERACTIVE PROJECT DEMO</p>
+            <h1 id="page-title">ICT help desk</h1>
+            <p class="intro-copy">A small workflow prototype for organising support requests and following their progress.</p>
+            <p class="demo-notice">
+                <strong>Demo only.</strong> Sample tickets are fictional. Requests you add stay in this page session and are not sent to a server.
+            </p>
+        </section>
+
+        <section class="overview" aria-label="Ticket overview">
+            <article class="stat-card">
+                <span>All requests</span>
+                <strong id="total-count">0</strong>
+            </article>
+            <article class="stat-card">
+                <span>Open</span>
+                <strong id="open-count">0</strong>
+            </article>
+            <article class="stat-card">
+                <span>In progress</span>
+                <strong id="progress-count">0</strong>
+            </article>
+            <article class="stat-card">
+                <span>Resolved</span>
+                <strong id="resolved-count">0</strong>
+            </article>
+        </section>
+
+        <div class="desk-layout">
+            <section class="panel queue-panel" aria-labelledby="queue-title">
+                <div class="panel-heading">
+                    <div>
+                        <p class="eyebrow">SERVICE QUEUE</p>
+                        <h2 id="queue-title">Support requests</h2>
+                    </div>
+                    <div class="search-field">
+                        <label class="search-label" for="ticket-search">Search requests</label>
+                        <input class="search-input" id="ticket-search" type="search" placeholder="Search title or details">
+                    </div>
+                </div>
+
+                <div class="filter-list" role="group" aria-label="Filter requests by status">
+                    <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">All</button>
+                    <button class="filter-button" type="button" data-filter="Open" aria-pressed="false">Open</button>
+                    <button class="filter-button" type="button" data-filter="In progress" aria-pressed="false">In progress</button>
+                    <button class="filter-button" type="button" data-filter="Resolved" aria-pressed="false">Resolved</button>
+                </div>
+
+                <div class="ticket-list" id="ticket-list" aria-live="polite" aria-relevant="additions text"></div>
+                <p class="empty-state" id="empty-state" hidden>No requests match this filter. Try another status or search term.</p>
+            </section>
+
+            <aside class="panel form-panel" aria-labelledby="new-ticket-title">
+                <p class="eyebrow">QUICK ACTION</p>
+                <h2 id="new-ticket-title">Create a request</h2>
+                <p class="form-intro">Add a fictional request to try the workflow.</p>
+
+                <form id="ticket-form">
+                    <div class="field">
+                        <label for="ticket-title">Request title</label>
+                        <input id="ticket-title" name="title" type="text" maxlength="80" placeholder="e.g. Shared printer is offline" required>
+                    </div>
+
+                    <div class="field-row">
+                        <div class="field">
+                            <label for="ticket-category">Category</label>
+                            <select id="ticket-category" name="category">
+                                <option>Hardware</option>
+                                <option>Network</option>
+                                <option>Accounts</option>
+                                <option>Software</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label for="ticket-priority">Priority</label>
+                            <select id="ticket-priority" name="priority">
+                                <option>Normal</option>
+                                <option>Low</option>
+                                <option>High</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="ticket-description">Details</label>
+                        <textarea id="ticket-description" name="description" rows="4" maxlength="300" placeholder="Describe the issue without entering personal or sensitive information." required></textarea>
+                    </div>
+
+                    <button class="submit-button" type="submit">Add sample request</button>
+                    <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+                </form>
+            </aside>
+        </div>
+
+        <footer class="demo-footer">
+            <p>This prototype has no backend. Reloading the page restores the sample requests.</p>
+            <a href="../../index.html#contact">Contact Victor ↗</a>
+        </footer>
+    </main>
+</body>
+</html>
