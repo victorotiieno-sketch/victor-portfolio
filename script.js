@@ -143,7 +143,7 @@ const applyTheme = theme => {
     document.body.dataset.theme = theme;
 
     if (themeColor) {
-        themeColor.setAttribute("content", isLight ? "#f5f8f9" : "#15212b");
+        themeColor.setAttribute("content", isLight ? "#f5f8f9" : "#11161c");
     }
 
     if (themeToggle) {
