@@ -1,6 +1,7 @@
 const header = document.getElementById("header");
 const menuToggle = document.getElementById("menu-toggle");
 const themeToggle = document.getElementById("theme-toggle");
+const themeColor = document.querySelector('meta[name="theme-color"]');
 const nav = document.getElementById("nav");
 const navLinks = [...document.querySelectorAll(".nav-link")];
 const sections = [...document.querySelectorAll("section[id]")];
@@ -128,18 +129,22 @@ const safeStorage = {
 };
 
 const getPreferredTheme = () => {
-    const savedTheme = safeStorage.getItem("victor-portfolio-theme");
+    const savedTheme = safeStorage.getItem("victor-portfolio-theme-v2");
 
     if (savedTheme === "light" || savedTheme === "dark") {
         return savedTheme;
     }
 
-    return window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+    return "light";
 };
 
 const applyTheme = theme => {
     const isLight = theme === "light";
     document.body.dataset.theme = theme;
+
+    if (themeColor) {
+        themeColor.setAttribute("content", isLight ? "#f5f8f9" : "#15212b");
+    }
 
     if (themeToggle) {
         const icon = themeToggle.querySelector(".theme-toggle__icon");
@@ -149,7 +154,7 @@ const applyTheme = theme => {
         }
     }
 
-    safeStorage.setItem("victor-portfolio-theme", theme);
+    safeStorage.setItem("victor-portfolio-theme-v2", theme);
 };
 
 const animateCounter = counter => {
